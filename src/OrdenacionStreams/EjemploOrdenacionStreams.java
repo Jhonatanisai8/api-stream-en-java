@@ -26,7 +26,7 @@ public class EjemploOrdenacionStreams {
 
         System.out.println("Ejemplo 02....");
         listaEnteros.stream()
-                .peek(System.out::println)
+                .peek(System.out::println) // no es una operacion terminal
                 .collect(Collectors.toList());
         System.out.println();
 
