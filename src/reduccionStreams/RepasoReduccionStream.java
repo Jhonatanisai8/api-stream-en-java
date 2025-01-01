@@ -15,10 +15,19 @@ public class RepasoReduccionStream {
         int sumaGeneral = listaNumeros.stream().mapToInt(Integer::intValue).sum();
         long numeroElementos = listaNumeros.stream().count();
 
+        //en caso el valor sea vacio
+        listaNumeros.stream().mapToInt(Integer::intValue).max().ifPresent(System.out::println);
+        listaNumeros.stream().mapToInt(Integer::intValue)
+                .filter(value -> value >= 1000)
+                .max()
+                .ifPresentOrElse(value -> System.out.println("value = " + value),
+                        () -> System.out.println("Stream Vacio."));
+
         System.out.println("valorMinimo = " + valorMinimo);
         System.out.println("valorMaxmo = " + sumaGeneral);
         System.out.println("promedioGeneral = " + promedioGeneral);
         System.out.println("sumaGeneral = " + sumaGeneral);
         System.out.println("numeroElementos = " + numeroElementos);
+
     }
 }
