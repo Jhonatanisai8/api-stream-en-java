@@ -1,8 +1,10 @@
 package recoleccionStreamALista;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Book {
+public class Book
+        implements Comparable<Book> {
     private final String isbn;
     private final String tittle;
     private final int yearOfPublication;
@@ -57,5 +59,10 @@ public class Book {
     @Override
     public int hashCode() {
         return Objects.hash(isbn, tittle, yearOfPublication, genre);
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        return tittle.compareTo(o.getTittle());
     }
 }
