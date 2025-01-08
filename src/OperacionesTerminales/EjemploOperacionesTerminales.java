@@ -20,7 +20,7 @@ public class EjemploOperacionesTerminales {
                 .anyMatch(integer -> integer % 2 == 0); //retorna si todos los elemenos de la lista son impares
         System.out.println("sonImpares = " + sonImpares);
 
-        List<Integer> multiplosDe03 = List.of(3,6,9,12,15,8);
+        List<Integer> multiplosDe03 = List.of(3, 6, 9, 12, 15, 8);
         boolean sonMultiplosDE03 = multiplosDe03
                 .stream()
                 .noneMatch(integer -> integer % 3 != 0); // retorna si todos son multiplos de 3
@@ -38,6 +38,18 @@ public class EjemploOperacionesTerminales {
                 .findAny();
         System.out.println("valorPrimero = " + valorPrimero);
         System.out.println("valorBuscado = " + valorBuscado01);
+
+        //como obtener el ultimo elemento de un stream
+        List<Integer> listaEnteros = List.of(1, 2, 3, 4, -12323);
+        long totalElementos = listaEnteros
+                .stream()
+                .count();
+        Optional<Integer> ultimoELemento = listaEnteros
+                .stream()
+                .skip(totalElementos - 1)
+                .findFirst();
+        System.out.println("ultimoELemento = " + ultimoELemento);
+
 
     }
 }
