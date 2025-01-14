@@ -20,6 +20,12 @@ public class EjemploRecoleccionStreamArray {
 
         System.out.println(listaEnteros);
 
+        Integer[] arregloEnteros01 = listaEnteros.stream()
+                .filter(integer -> integer % 2 == 0)
+                .toArray(Integer[]::new);
+
+        Arrays.stream(arregloEnteros01).forEach(System.out::println);
+
         Object[] arregloEnteros = listaEnteros.stream()
                 .filter(integer -> integer % 2 == 0)
                 .toArray();
